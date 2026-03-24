@@ -1,21 +1,18 @@
-# Verification Summary
+# 🧪 Verification Summary
 
-This summary replaces the earlier raw command dump and keeps the useful results in a smaller, easier-to-maintain format.
+This page keeps the public, curated version of the sandbox verification notes.
 
-For preserved raw-adjacent evidence that still exists in the workspace, see [Evidence Appendix](./evidence.md).
+## Session Scope
 
-## Environment
-
-- Workspace: `D:\Prj\grok-sandbox`
-- Active repository: `D:\Prj\grok-sandbox\grok-cli`
-- Main command used: `grok`
-- Shell: PowerShell
-- Observed CLI version: `1.0.0-rc5`
-- Observed Node version: `v24.12.0`
+- Date observed: `2026-03-24`
+- Host style: Windows sandbox workspace
+- Wrapper repo: `grok-cli-sandbox`
+- Active CLI source: pinned `grok-cli` submodule snapshot
+- Primary command path: `grok`
 
 ## Verified CLI Flows
 
-These flows were exercised successfully:
+The following flows were exercised successfully during the recorded session:
 
 - `grok --help`
 - `grok models`
@@ -24,12 +21,12 @@ These flows were exercised successfully:
 
 Observed behavior:
 
-- headless mode emitted JSON events such as `step_start`, `text`, and `step_finish`
-- session continuation correctly reused earlier context
+- headless mode emitted structured JSON events such as `step_start`, `text`, and `step_finish`
+- session continuation reused earlier context as expected
 
-## Verified Tool Calls
+## Verified Tool Families
 
-The following tool paths were exercised:
+The session also exercised these tool families:
 
 - `search_web`
 - `search_x`
@@ -37,40 +34,30 @@ The following tool paths were exercised:
 - `delegate`
 - `delegation_read`
 
-Observed behavior:
+These are documented as observed capabilities from the tested snapshot, not as a promise about every future release.
 
-- current xAI-related web results were returned
-- X results were returned through `search_x`
-- sub-agent exploration and background delegation both produced results
+## Verified Media Output
 
-## Verified Media Generation
+Artifacts preserved in this repository:
 
-Generated artifacts confirmed during testing:
+- sample image: [`../assets/grok-generated-cat-logo.jpg`](../assets/grok-generated-cat-logo.jpg)
 
-- image: `D:\Prj\grok-sandbox\assets\grok-generated-cat-logo.jpg`
-- video: `D:\Prj\grok-sandbox\grok-cli\.grok\generated-media\video-2026-03-24T11-16-18-036Z.mp4`
+Artifacts referenced but intentionally kept local-only:
 
-## Verified Telegram Flow
+- generated video outputs under repo-local `.grok/generated-media/`
 
-Telegram remote control was verified through the helper bridge.
+## Telegram Flow
 
-Confirmed behaviors:
+The Telegram helper path was verified for:
 
-- bot identity lookup succeeded
-- bridge startup succeeded
-- pairing with a 6-character code succeeded
-- normal chat succeeded
-- tool-triggered directory inspection succeeded
-- `search_x` succeeded from Telegram
-- file creation and file update succeeded from Telegram instructions
+- bot identity lookup
+- bridge startup
+- pairing approval flow
+- normal chat
+- tool-triggered file operations
 
-Representative successful prompts:
+Public docs intentionally omit live bot identifiers and user IDs. See [Evidence & Archive](./evidence.md) for the published evidence boundary.
 
-- `こんにちは`
-- `日本語で応答して！今日のご飯を教えて`
-- `カレントディレクトリを見てみて！！何があるかな？？`
-- `いいね！Xの@openclawあアカウントで直近の10件くらいの内容をまとめてマークダウンファイルで日本語のレポートを作成して`
+## Environment-Specific Caveat
 
-## Known Caveat
-
-In this environment, `node dist/index.js` hit `ERR_IMPORT_ATTRIBUTE_MISSING` on Node `v24.12.0`. The linked `grok` command was the stable path used for local testing.
+During the 2026-03-24 session, `node dist/index.js` hit `ERR_IMPORT_ATTRIBUTE_MISSING` on Node `v24.12.0`. The `grok` command path remained the stable route used for verification.

@@ -1,65 +1,62 @@
-# Telegram Helper Guide
+# 🤖 Telegram Helper
 
-This workspace includes a helper that starts the existing Telegram remote-control bridge without opening the TUI flow.
+This repository includes a helper that starts the existing Telegram remote-control bridge without going through the TUI pairing flow.
 
-## Files
+## What Changed in This Wrapper Repo
 
-- Helper script: `D:\Prj\grok-sandbox\telegram-remote-bridge.mjs`
-- Pairing code file: `D:\Prj\grok-sandbox\telegram-pair-code.txt`
-- Log file: `D:\Prj\grok-sandbox\telegram-remote-bridge.log`
+The helper entry point at [`../telegram-remote-bridge.mjs`](../telegram-remote-bridge.mjs) is now checkout-relative instead of hardcoded to one local path.
+
+Optional overrides:
+
+- `GROK_SANDBOX_ROOT`
+- `GROK_SANDBOX_REPO_DIR`
+- `GROK_SANDBOX_LOG_PATH`
+- `GROK_SANDBOX_PAIR_PATH`
 
 ## Prerequisites
 
-- `C:\Users\Aslan\.grok\user-settings.json` must contain a valid `apiKey`
+- `~/.grok/user-settings.json` must contain a valid `apiKey`
 - the same file must contain `telegram.botToken`
-- `D:\Prj\grok-sandbox\grok-cli\dist` must exist
+- the pinned `./grok-cli` submodule must be initialized
+- `./grok-cli/dist` must exist
 
-## Start
+## Start the Helper
 
-Run the helper in another terminal:
+From the repository root:
 
 ```powershell
-cmd /c start "" /B C:\Users\Aslan\.local\bin\bun.cmd D:\Prj\grok-sandbox\telegram-remote-bridge.mjs
+bun .\telegram-remote-bridge.mjs
 ```
 
 Confirm startup:
 
 ```powershell
-Get-Content D:\Prj\grok-sandbox\telegram-remote-bridge.log -Tail 20
+Get-Content .\telegram-remote-bridge.log -Tail 20
 ```
 
-Expected lines:
+You should see lifecycle lines such as:
 
 ```text
 [... ] bot_ready username=@<your_bot> id=<bot_id>
 [... ] telegram_bridge_started
 ```
 
-## Pairing
+## Pair Your Telegram Account
 
-1. Open your bot in Telegram
-2. Send `/pair`
-3. Copy the 6-character code Telegram returns
-4. Write the code into the watched file
+1. Open your bot in Telegram.
+2. Send `/pair`.
+3. Copy the 6-character code returned by the bot.
+4. Write the code into `telegram-pair-code.txt`.
 
 ```powershell
-Set-Content -Path D:\Prj\grok-sandbox\telegram-pair-code.txt -Value '09FB08' -Encoding UTF8
+Set-Content -Path .\telegram-pair-code.txt -Value '09FB08' -Encoding UTF8
 ```
 
 If pairing succeeds, the log will contain `pair_approved`.
 
-## During Use
+## Notes
 
-- Keep the helper process running while using Telegram
-- Replies and tool calls are logged to `telegram-remote-bridge.log`
-- The bot can edit files inside `D:\Prj\grok-sandbox\grok-cli`
-- Pairing state and Telegram session IDs are stored in `C:\Users\Aslan\.grok\user-settings.json`
-
-## Useful Checks
-
-```powershell
-Get-Content D:\Prj\grok-sandbox\telegram-remote-bridge.log -Tail 50
-Get-Content D:\Prj\grok-sandbox\telegram-pair-code.txt
-```
-
-The runtime helper artifacts are ignored by `D:\Prj\grok-sandbox\.gitignore`.
+- Keep the helper process running while using Telegram.
+- Pairing and log artifacts are intentionally git-ignored.
+- The bot can edit files inside the checked-out `grok-cli` submodule.
+- Public docs intentionally use placeholders for live bot identifiers and user IDs.

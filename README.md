@@ -1,168 +1,137 @@
-# Grok Sandbox
+<div align="center">
+  <img src="./assets/grok-sandbox-mark.svg" alt="Grok Sandbox mark" width="108" />
+  <h1>Grok Sandbox</h1>
+  <p><strong>Public wrapper repository for verified Grok CLI experiments.</strong><br />Bilingual docs, a portable Telegram helper, and a pinned snapshot of the Sunwood Grok CLI fork.</p>
+</div>
 
-This workspace is centered on the Sunwood fork of Grok CLI.
+<p align="center">
+  <a href="https://github.com/Sunwood-ai-labs/grok-cli-sandbox/actions/workflows/ci.yml"><img alt="CI" src="https://github.com/Sunwood-ai-labs/grok-cli-sandbox/actions/workflows/ci.yml/badge.svg" /></a>
+  <a href="https://github.com/Sunwood-ai-labs/grok-cli-sandbox/actions/workflows/docs-pages.yml"><img alt="Docs Pages" src="https://github.com/Sunwood-ai-labs/grok-cli-sandbox/actions/workflows/docs-pages.yml/badge.svg" /></a>
+  <a href="./LICENSE"><img alt="License" src="https://img.shields.io/badge/license-MIT-0f3b68.svg" /></a>
+</p>
 
-- Active repo: `D:\Prj\grok-sandbox\grok-cli`
-- Upstream fork source: `https://github.com/Sunwood-ai-labs/grok-cli`
-- Global command name: `grok`
-- Current linked target: `D:\Prj\grok-sandbox\grok-cli`
-- Published sandbox repo: `https://github.com/Sunwood-ai-labs/grok-cli-sandbox`
-- `grok-cli` is tracked here as a Git submodule
+<p align="center">
+  <a href="./README.md">English</a>
+  ·
+  <a href="./README.ja.md">日本語</a>
+  ·
+  <a href="https://sunwood-ai-labs.github.io/grok-cli-sandbox/">Docs</a>
+</p>
 
-## Clone This Sandbox
+<p align="center">
+  <img src="./assets/grok-sandbox-hero.svg" alt="Grok Sandbox hero illustration" width="860" />
+</p>
 
-Clone with the nested CLI repo included:
+## ✨ What This Repo Is
 
-```powershell
-git clone --recurse-submodules https://github.com/Sunwood-ai-labs/grok-cli-sandbox
-```
+`grok-cli-sandbox` is the public-facing wrapper repository around a tested Grok CLI workspace.
 
-If you already cloned it without submodules:
+- The actual CLI source lives in the [`./grok-cli`](./grok-cli) submodule.
+- This root repository adds curated docs, verification notes, helper glue, and brand assets.
+- The included snapshot is pinned to a published branch in [`Sunwood-ai-labs/grok-cli`](https://github.com/Sunwood-ai-labs/grok-cli/tree/codex/sandbox-snapshot-20260324) so fresh clones remain reproducible.
 
-```powershell
-git -C D:\Prj\grok-sandbox submodule update --init --recursive
-```
+This repository is intentionally scoped as a reproducible sandbox and documentation surface, not as the canonical upstream for the CLI itself.
 
-## Preview
+## 🚀 Quick Start
 
-Generated sample image created through the CLI:
+1. Clone the repository with submodules.
 
-![Generated monochrome cat logo](assets/grok-generated-cat-logo.jpg)
+   ```powershell
+   git clone --recurse-submodules https://github.com/Sunwood-ai-labs/grok-cli-sandbox
+   cd grok-cli-sandbox
+   ```
 
-- Image file: `D:\Prj\grok-sandbox\assets\grok-generated-cat-logo.jpg`
-- Original generated file: `D:\Prj\grok-sandbox\grok-cli\.grok\generated-media\image-2026-03-24T10-45-54-614Z.jpg`
+2. Configure your xAI settings in `~/.grok/user-settings.json`.
 
-## API Key Setup
+   ```json
+   {
+     "baseURL": "https://api.x.ai/v1",
+     "defaultModel": "grok-code-fast-1",
+     "apiKey": "<your xAI API key>"
+   }
+   ```
 
-Preferred location:
+3. Use the pinned CLI snapshot from the submodule.
 
-- User settings file: `C:\Users\Aslan\.grok\user-settings.json`
+   ```powershell
+   cd .\grok-cli
+   grok --help
+   grok models
+   grok -p "Reply with only pong." --format json
+   ```
 
-Expected shape:
+4. Build the docs site locally when you want the published experience.
 
-```json
-{
-  "baseURL": "https://api.x.ai/v1",
-  "defaultModel": "grok-code-fast-1",
-  "apiKey": "<your xAI API key>"
-}
-```
+   ```powershell
+   cd ..\docs
+   npm install
+   npm run assets:build
+   npm run docs:build
+   ```
 
-Notes:
+## 🧪 Verified Surface
 
-- Do not store secrets in the repository.
-- `.env` is supported by `dotenv`, but this sandbox prefers `C:\Users\Aslan\.grok\user-settings.json`.
-- Repo-local `.grok/` and `.env` are ignored by `.gitignore`.
+The curated verification pages cover one Windows sandbox session dated **2026-03-24**.
 
-## Local Usage
+- Headless prompt execution with JSON event output
+- Session continuation with `--session latest`
+- Tool families such as `search_web`, `search_x`, `task`, `delegate`, and `delegation_read`
+- Image generation and archived media output
+- Telegram remote-control pairing and helper-driven file operations
 
-From this workspace:
+These are documented as dated observations, not evergreen guarantees for every future CLI build.
 
-```powershell
-cd D:\Prj\grok-sandbox\grok-cli
-grok --help
-grok models
-grok -p "Reply with only pong." --format json
-```
+## 📚 Read Next
 
-Important:
-
-- `grok --version` returns `1.0.0-rc5` in this environment
-- `node dist/index.js ...` fails here on Node `v24.12.0` with `ERR_IMPORT_ATTRIBUTE_MISSING`
-- the linked `grok` command is the stable path for local testing
-
-## Verified Results
-
-The old raw command dump has been folded into root-level docs.
-
-Workspace docs:
-
-- [Raw Command Log](./GROK_COMMANDS_AND_OUTPUTS.md)
-- [Docs Index](./docs/README.md)
-- [Telegram Helper Guide](./docs/telegram-helper.md)
+- [Docs site](https://sunwood-ai-labs.github.io/grok-cli-sandbox/)
+- [Getting Started](./docs/getting-started.md)
+- [Repository Layout](./docs/repo-structure.md)
 - [Verification Summary](./docs/verification-summary.md)
-- [Evidence Appendix](./docs/evidence.md)
-- [Public README](./grok-cli/README.md)
+- [Telegram Helper Guide](./docs/telegram-helper.md)
+- [Evidence & Archive Notes](./docs/evidence.md)
+- [Archived Raw Session Log](./GROK_COMMANDS_AND_OUTPUTS.md)
 
-Highlights confirmed in this workspace:
+## 🧩 Repository Layout
 
-- headless prompt execution with JSON output
-- session persistence with `--session latest`
-- tool calls for `search_web`, `search_x`, `task`, `delegate`, and `delegation_read`
-- image and video generation
-- Telegram pairing, chat, tool use, and file edits through the helper bridge
+| Path | Purpose |
+| --- | --- |
+| [`grok-cli`](./grok-cli) | Pinned CLI source snapshot from `Sunwood-ai-labs/grok-cli` |
+| [`docs`](./docs) | Bilingual VitePress docs and repository guides |
+| [`assets`](./assets) | Sample media plus reusable repo identity assets |
+| [`telegram-remote-bridge.mjs`](./telegram-remote-bridge.mjs) | Portable helper for Telegram remote control |
+| [`GROK_COMMANDS_AND_OUTPUTS.md`](./GROK_COMMANDS_AND_OUTPUTS.md) | Archived raw notebook from the original sandbox run |
 
-Artifacts produced during the experiments:
+## 🤖 Telegram Helper
 
-- Generated image: `D:\Prj\grok-sandbox\assets\grok-generated-cat-logo.jpg`
-- Generated video: `D:\Prj\grok-sandbox\grok-cli\.grok\generated-media\video-2026-03-24T11-16-18-036Z.mp4`
-
-## Telegram Helper
-
-This workspace includes a helper that starts the existing Telegram remote-control bridge without going through the TUI.
-
-- Helper script: `D:\Prj\grok-sandbox\telegram-remote-bridge.mjs`
-- Pairing code file: `D:\Prj\grok-sandbox\telegram-pair-code.txt`
-- Log file: `D:\Prj\grok-sandbox\telegram-remote-bridge.log`
-
-Prerequisites:
-
-- `C:\Users\Aslan\.grok\user-settings.json` must already contain a valid `apiKey`
-- the same file must contain `telegram.botToken`
-- `D:\Prj\grok-sandbox\grok-cli\dist` must exist
-
-Start the helper in a separate terminal:
+The helper in [`telegram-remote-bridge.mjs`](./telegram-remote-bridge.mjs) now resolves paths from the current checkout instead of hardcoding one local workspace.
 
 ```powershell
-cmd /c start "" /B C:\Users\Aslan\.local\bin\bun.cmd D:\Prj\grok-sandbox\telegram-remote-bridge.mjs
+bun .\telegram-remote-bridge.mjs
 ```
 
-Confirm startup:
+Optional overrides are available if you want to move the log or pairing files:
 
-```powershell
-Get-Content D:\Prj\grok-sandbox\telegram-remote-bridge.log -Tail 20
-```
+- `GROK_SANDBOX_ROOT`
+- `GROK_SANDBOX_REPO_DIR`
+- `GROK_SANDBOX_LOG_PATH`
+- `GROK_SANDBOX_PAIR_PATH`
 
-You should see lines like:
+The full guide lives in [docs/telegram-helper.md](./docs/telegram-helper.md).
 
-```text
-[... ] bot_ready username=@<your_bot> id=<bot_id>
-[... ] telegram_bridge_started
-```
+## 🔐 Secrets & Privacy
 
-Pair your Telegram account:
+- Repo-local `.grok/`, `.env*`, pairing files, and helper logs are git-ignored.
+- Curated docs intentionally avoid publishing live bot tokens, user IDs, or local database paths.
+- Local runtime artifacts remain local-only and are described in [docs/evidence.md](./docs/evidence.md) as unpublished evidence.
 
-1. Open your bot in Telegram
-2. Send `/pair`
-3. Copy the 6-character code from Telegram
-4. Write the code into the watched file:
+## 🖼️ Example Output
 
-```powershell
-Set-Content -Path D:\Prj\grok-sandbox\telegram-pair-code.txt -Value '09FB08' -Encoding UTF8
-```
+Generated sample image preserved from the verified session:
 
-If pairing succeeds, the log will contain `pair_approved`.
+![Generated monochrome cat logo](./assets/grok-generated-cat-logo.jpg)
 
-After that, just chat with the bot in Telegram. The helper keeps the bridge alive and reuses the saved Grok session for that Telegram user.
+## ⚠️ Scope Notes
 
-Useful checks:
-
-```powershell
-Get-Content D:\Prj\grok-sandbox\telegram-remote-bridge.log -Tail 50
-Get-Content D:\Prj\grok-sandbox\telegram-pair-code.txt
-```
-
-Notes:
-
-- Keep the helper process running while you use Telegram
-- tool calls and replies are logged to `telegram-remote-bridge.log`
-- the bot can trigger file edits in `D:\Prj\grok-sandbox\grok-cli`, so use it in a repo you are comfortable modifying
-- pairing state and Telegram session IDs are stored in `C:\Users\Aslan\.grok\user-settings.json`
-- helper runtime artifacts are ignored by `D:\Prj\grok-sandbox\.gitignore`
-- a fuller guide lives in [Telegram Helper Guide](./docs/telegram-helper.md)
-
-## Notes
-
-- Background delegation artifacts are stored under `C:\Users\Aslan\.grok\delegations\`
-- this workspace root is now the published sandbox repository
-- `D:\Prj\grok-sandbox\grok-cli` remains the active nested Grok CLI repo and is tracked as a Git submodule
+- This repo documents a tested sandbox snapshot. It does not replace the upstream CLI repository.
+- The `node dist/index.js` caveat documented in the guides was observed on Node `v24.12.0` during the 2026-03-24 verification session.
+- The archived raw session log is intentionally kept as an appendix and may include Japanese text and terminal-dependent encoding artifacts.

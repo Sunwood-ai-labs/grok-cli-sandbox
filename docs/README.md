@@ -1,5 +1,16 @@
 # Grok Sandbox Docs
 
-- [Telegram Helper Guide](./telegram-helper.md)
-- [Verification Summary](./verification-summary.md)
-- [Evidence Appendix](./evidence.md)
+This directory contains the curated public documentation for the root `grok-cli-sandbox` repository.
+
+Recommended reading order:
+
+1. [Getting Started](./getting-started.md)
+2. [Repository Layout](./repo-structure.md)
+3. [Verification Summary](./verification-summary.md)
+4. [Telegram Helper](./telegram-helper.md)
+5. [Troubleshooting](./troubleshooting.md)
+6. [Evidence & Archive](./evidence.md)
+
+Japanese counterparts live under [`./ja`](./ja/).
+
+When GitHub Pages is enabled, the same content is published through the VitePress site at [sunwood-ai-labs.github.io/grok-cli-sandbox](https://sunwood-ai-labs.github.io/grok-cli-sandbox/).
