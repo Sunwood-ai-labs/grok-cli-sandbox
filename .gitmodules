@@ -1,3 +1,4 @@
 [submodule "grok-cli"]
 	path = grok-cli
 	url = https://github.com/Sunwood-ai-labs/grok-cli.git
+	branch = codex/sandbox-snapshot-20260324

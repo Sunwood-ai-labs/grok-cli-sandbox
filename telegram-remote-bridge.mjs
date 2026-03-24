@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import process from "node:process";
+import { fileURLToPath } from "node:url";
 import { Agent } from "./grok-cli/dist/agent/agent.js";
 import { createTelegramBridge } from "./grok-cli/dist/telegram/bridge.js";
 import { approvePairingCode } from "./grok-cli/dist/telegram/pairing.js";
@@ -11,19 +12,32 @@ import {
   getCurrentModel,
   getTelegramBotToken,
   loadUserSettings,
-  saveUserSettings,
+  saveUserSettings
 } from "./grok-cli/dist/utils/settings.js";
 
-const rootDir = "D:/Prj/grok-sandbox";
-const repoDir = path.join(rootDir, "grok-cli");
-const logPath = path.join(rootDir, "telegram-remote-bridge.log");
-const pairInputPath = path.join(rootDir, "telegram-pair-code.txt");
+const scriptPath = fileURLToPath(import.meta.url);
+const rootDir = process.env.GROK_SANDBOX_ROOT
+  ? path.resolve(process.env.GROK_SANDBOX_ROOT)
+  : path.dirname(scriptPath);
+const repoDir = process.env.GROK_SANDBOX_REPO_DIR
+  ? path.resolve(process.env.GROK_SANDBOX_REPO_DIR)
+  : path.join(rootDir, "grok-cli");
+const logPath = process.env.GROK_SANDBOX_LOG_PATH
+  ? path.resolve(process.env.GROK_SANDBOX_LOG_PATH)
+  : path.join(rootDir, "telegram-remote-bridge.log");
+const pairInputPath = process.env.GROK_SANDBOX_PAIR_PATH
+  ? path.resolve(process.env.GROK_SANDBOX_PAIR_PATH)
+  : path.join(rootDir, "telegram-pair-code.txt");
 const startupConfig = {
   apiKey: getApiKey(),
   baseURL: getBaseURL(),
   model: getCurrentModel(),
-  maxToolRounds: 400,
+  maxToolRounds: 400
 };
+
+if (!fs.existsSync(repoDir)) {
+  throw new Error(`Expected Grok CLI checkout at ${repoDir}`);
+}
 
 process.chdir(repoDir);
 
@@ -32,7 +46,7 @@ function log(message) {
 }
 
 function truncate(text, limit = 160) {
-  return text.length <= limit ? text : `${text.slice(0, limit - 1)}…`;
+  return text.length <= limit ? text : `${text.slice(0, limit - 3)}...`;
 }
 
 function saveApprovedUser(userId) {
@@ -42,8 +56,8 @@ function saveApprovedUser(userId) {
   saveUserSettings({
     telegram: {
       ...settings.telegram,
-      approvedUserIds: [...ids],
-    },
+      approvedUserIds: [...ids]
+    }
   });
 }
 
@@ -71,7 +85,7 @@ function buildTelegramAgentFactory() {
       startupConfig.baseURL,
       startupConfig.model,
       startupConfig.maxToolRounds,
-      { session: sessionId },
+      { session: sessionId }
     );
 
     if (!sessionId && agent.getSessionId()) {
@@ -80,9 +94,9 @@ function buildTelegramAgentFactory() {
           ...settings.telegram,
           sessionsByUserId: {
             ...settings.telegram?.sessionsByUserId,
-            [String(userId)]: agent.getSessionId(),
-          },
-        },
+            [String(userId)]: agent.getSessionId()
+          }
+        }
       });
     }
 
@@ -134,7 +148,7 @@ const bridge = createTelegramBridge({
   },
   onError: (message) => {
     log(`bridge_error: ${message}`);
-  },
+  }
 });
 
 let lastPairInput = "";

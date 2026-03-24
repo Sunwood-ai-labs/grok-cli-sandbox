@@ -1,0 +1,16 @@
+{
+  "name": "grok-cli-sandbox-docs",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Bilingual VitePress docs and branding assets for the Grok Sandbox repository.",
+  "scripts": {
+    "assets:build": "node ./scripts/build-brand-assets.mjs",
+    "docs:dev": "vitepress dev .",
+    "docs:build": "vitepress build .",
+    "docs:preview": "vitepress preview ."
+  },
+  "devDependencies": {
+    "@resvg/resvg-js": "^2.6.2",
+    "vitepress": "^1.6.4"
+  }
+}

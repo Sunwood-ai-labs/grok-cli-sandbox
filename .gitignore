@@ -1,5 +1,9 @@
 /.grok/
 /.env
 /.env.*
+/docs/node_modules/
+/docs/.vitepress/cache/
+/docs/.vitepress/dist/
+/docs/.vitepress/.temp/
 /telegram-pair-code.txt
 /telegram-remote-bridge.log

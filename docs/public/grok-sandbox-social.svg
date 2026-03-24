@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="social-glow" x1="712" y1="320" x2="934" y2="628" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#6fd2ff" />
+      <stop offset="1" stop-color="#8af1c7" />
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" rx="56" fill="#0C1B33" />
+  <rect x="82" y="82" width="1436" height="736" rx="48" fill="#13294A" />
+  <rect x="120" y="120" width="552" height="552" rx="52" fill="#F4FBFF" />
+  <path d="M698 466C698 376.53 770.53 304 860 304H888V466C888 555.47 815.47 628 726 628H698V466Z" fill="url(#social-glow)" />
+  <circle cx="940" cy="180" r="58" fill="#ffcd6b" />
+  <path d="M774 228L820 184" stroke="#ffffff" stroke-width="22" stroke-linecap="round" />
+  <path d="M852 268L916 218" stroke="#ffffff" stroke-width="22" stroke-linecap="round" />
+  <path d="M888 346H970" stroke="#ffffff" stroke-width="22" stroke-linecap="round" />
+  <g font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#ffffff">
+    <text x="960" y="470" font-size="92" font-weight="700">Grok Sandbox</text>
+    <text x="960" y="548" font-size="34" font-weight="500" fill="#D7E9FF">Verified notes, Telegram helper glue, and bilingual docs</text>
+    <text x="960" y="612" font-size="28" font-weight="500" fill="#B8D1EC">Public wrapper repository around a pinned Grok CLI snapshot</text>
+  </g>
+</svg>

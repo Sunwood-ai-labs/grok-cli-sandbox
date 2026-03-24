@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="hero-bg" x1="120" y1="60" x2="1450" y2="820" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0E1F39" />
+      <stop offset="0.55" stop-color="#183961" />
+      <stop offset="1" stop-color="#0A152A" />
+    </linearGradient>
+    <linearGradient id="hero-glow" x1="960" y1="160" x2="1320" y2="560" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#6fd2ff" />
+      <stop offset="1" stop-color="#8af1c7" />
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" rx="56" fill="url(#hero-bg)" />
+  <circle cx="1290" cy="160" r="72" fill="#ffcd6b" />
+  <circle cx="1220" cy="660" r="220" fill="#6fd2ff" opacity="0.12" />
+  <circle cx="1400" cy="300" r="180" fill="#8af1c7" opacity="0.14" />
+  <rect x="86" y="114" width="620" height="672" rx="48" fill="#ffffff" fill-opacity="0.96" />
+  <rect x="132" y="172" width="186" height="22" rx="11" fill="#6fd2ff" fill-opacity="0.65" />
+  <rect x="132" y="230" width="420" height="22" rx="11" fill="#4d6079" fill-opacity="0.18" />
+  <rect x="132" y="276" width="388" height="22" rx="11" fill="#4d6079" fill-opacity="0.16" />
+  <rect x="132" y="322" width="320" height="22" rx="11" fill="#4d6079" fill-opacity="0.14" />
+  <rect x="132" y="394" width="240" height="172" rx="28" fill="#F0F9FF" />
+  <rect x="396" y="394" width="240" height="172" rx="28" fill="#F3FDF8" />
+  <rect x="132" y="592" width="504" height="126" rx="28" fill="#F7FAFC" />
+  <path d="M1058 336C1058 255.366 1123.37 190 1204 190H1230V336C1230 416.634 1164.63 482 1084 482H1058V336Z" fill="url(#hero-glow)" />
+  <path d="M1122 132L1174 84" stroke="#ffffff" stroke-width="24" stroke-linecap="round" />
+  <path d="M1210 182L1280 126" stroke="#ffffff" stroke-width="24" stroke-linecap="round" />
+  <path d="M1242 268H1330" stroke="#ffffff" stroke-width="24" stroke-linecap="round" />
+  <g font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" fill="#ffffff">
+    <text x="820" y="412" font-size="88" font-weight="700">Grok Sandbox</text>
+    <text x="820" y="480" font-size="34" font-weight="500" fill="#D7E9FF">Public wrapper repo for verified Grok CLI experiments</text>
+    <text x="820" y="548" font-size="26" font-weight="500" fill="#B3CBE8">bilingual docs, Telegram helper notes, and a pinned submodule snapshot</text>
+  </g>
+</svg>
