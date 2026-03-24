@@ -6,6 +6,22 @@ This workspace is centered on the Sunwood fork of Grok CLI.
 - Upstream fork source: `https://github.com/Sunwood-ai-labs/grok-cli`
 - Global command name: `grok`
 - Current linked target: `D:\Prj\grok-sandbox\grok-cli`
+- Published sandbox repo: `https://github.com/Sunwood-ai-labs/grok-cli-sandbox`
+- `grok-cli` is tracked here as a Git submodule
+
+## Clone This Sandbox
+
+Clone with the nested CLI repo included:
+
+```powershell
+git clone --recurse-submodules https://github.com/Sunwood-ai-labs/grok-cli-sandbox
+```
+
+If you already cloned it without submodules:
+
+```powershell
+git -C D:\Prj\grok-sandbox submodule update --init --recursive
+```
 
 ## Preview
 
@@ -148,4 +164,5 @@ Notes:
 ## Notes
 
 - Background delegation artifacts are stored under `C:\Users\Aslan\.grok\delegations\`
-- this workspace root is not a Git repository; the public-facing tracked changes live under `D:\Prj\grok-sandbox\grok-cli`
+- this workspace root is now the published sandbox repository
+- `D:\Prj\grok-sandbox\grok-cli` remains the active nested Grok CLI repo and is tracked as a Git submodule
