@@ -36,6 +36,21 @@ The session also exercised these tool families:
 
 These are documented as observed capabilities from the tested snapshot, not as a promise about every future release.
 
+## Command Highlights From the Archive
+
+The raw notebook in `GROK_COMMANDS_AND_OUTPUTS.md` now feeds a curated command summary as well.
+
+Highlights carried over from the archive:
+
+- environment capture with `bun`, `node`, and `grok --version`
+- local build, typecheck, and `vitest` verification for the pinned CLI snapshot
+- headless JSON output and session persistence with `--session latest`
+- tool-call examples for `search_web`, `task`, `delegate`, `delegation_read`, and `search_x`
+- generated media flows for `generate_image` and `generate_video`
+- Telegram helper startup, pairing, chat, file editing, unit tests, pairing-store checks, and invalid-token failure handling
+
+See [Command Highlights](./command-highlights.md) for the curated breakdown.
+
 ## Verified Media Output
 
 Artifacts preserved in this repository:

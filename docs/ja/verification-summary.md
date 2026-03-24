@@ -1,28 +1,28 @@
-# 🧪 検証サマリー
+# Verification Summary
 
-このページは sandbox 検証メモのうち、公開しても読みやすい形に整理した要約です。
+このページは sandbox 検証メモのうち、公開 docs として読みやすい部分を整理した要約です。
 
-## セッション範囲
+## Session Scope
 
 - 観測日: `2026-03-24`
 - 環境: Windows sandbox workspace
 - wrapper repo: `grok-cli-sandbox`
-- CLI source: 固定された `grok-cli` submodule snapshot
-- 主に使ったコマンド: `grok`
+- CLI source: 固定した `grok-cli` submodule snapshot
+- 主に使った command: `grok`
 
-## 検証した CLI フロー
+## Verified CLI Flows
 
 - `grok --help`
 - `grok models`
 - `grok -p "Reply with only pong." --format json`
 - `grok --session latest`
 
-観測した内容:
+観測結果:
 
 - headless mode では `step_start`, `text`, `step_finish` などの JSON event が返った
-- セッション継続では以前の文脈を再利用できた
+- `--session latest` によるセッション継続で直前の文脈を再利用できた
 
-## 検証した tool family
+## Verified Tool Families
 
 - `search_web`
 - `search_x`
@@ -30,9 +30,24 @@
 - `delegate`
 - `delegation_read`
 
-ここに書いているのは検証 snapshot で観測できた事実であり、今後の全リリースを保証するものではありません。
+ここで書いている内容は、検証した snapshot に対する観測結果です。将来の全リリースを保証するものではありません。
 
-## メディア出力
+## Command Highlights From the Archive
+
+raw archive `GROK_COMMANDS_AND_OUTPUTS.md` の要点も docs 側に反映しました。
+
+archive から持ち上げた内容:
+
+- `bun`, `node`, `grok --version` による環境 capture
+- `bun install`, `bun run build`, `bun run typecheck`, `vitest` による local verification
+- headless JSON output と `--session latest` による引き継ぎ
+- `search_web`, `task`, `delegate`, `delegation_read`, `search_x` の tool-call examples
+- `generate_image`, `generate_video` の media flow
+- Telegram helper startup, pairing, chat, file edit, unit tests, pairing-store check, invalid-token failure path
+
+詳細は [Command Highlights](./command-highlights.md) を参照してください。
+
+## Verified Media Output
 
 repo に公開しているアーティファクト:
 
@@ -42,7 +57,7 @@ repo に公開しているアーティファクト:
 
 - repo-local `.grok/generated-media/` 配下の動画や追加メディア
 
-## Telegram フロー
+## Telegram Flow
 
 Telegram helper については以下を確認しました。
 
@@ -54,6 +69,6 @@ Telegram helper については以下を確認しました。
 
 bot ID や user ID のような live identifier は public docs には載せていません。証跡境界は [証跡とアーカイブ](./evidence.md) を参照してください。
 
-## 環境依存の caveat
+## Environment-Specific Caveat
 
-2026-03-24 の検証では、Node `v24.12.0` で `node dist/index.js` が `ERR_IMPORT_ATTRIBUTE_MISSING` を返しました。安定経路としては `grok` コマンドを使用しています。
+2026-03-24 の検証では、Node `v24.12.0` で `node dist/index.js` が `ERR_IMPORT_ATTRIBUTE_MISSING` を返しました。安定経路としては `grok` command を使用しています。

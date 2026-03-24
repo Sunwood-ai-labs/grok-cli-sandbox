@@ -7,9 +7,10 @@ Recommended reading order:
 1. [Getting Started](./getting-started.md)
 2. [Repository Layout](./repo-structure.md)
 3. [Verification Summary](./verification-summary.md)
-4. [Telegram Helper](./telegram-helper.md)
-5. [Troubleshooting](./troubleshooting.md)
-6. [Evidence & Archive](./evidence.md)
+4. [Command Highlights](./command-highlights.md)
+5. [Telegram Helper](./telegram-helper.md)
+6. [Troubleshooting](./troubleshooting.md)
+7. [Evidence & Archive](./evidence.md)
 
 Japanese counterparts live under [`./ja`](./ja/).
 

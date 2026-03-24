@@ -9,6 +9,7 @@ The following artifacts are committed and safe to reference publicly:
 - [`../assets/grok-generated-cat-logo.jpg`](../assets/grok-generated-cat-logo.jpg)
 - [`../telegram-remote-bridge.mjs`](../telegram-remote-bridge.mjs)
 - [Verification Summary](./verification-summary.md)
+- [Command Highlights](./command-highlights.md)
 - [Telegram Helper](./telegram-helper.md)
 - [Archived Raw Session Log](https://github.com/Sunwood-ai-labs/grok-cli-sandbox/blob/main/GROK_COMMANDS_AND_OUTPUTS.md)
 

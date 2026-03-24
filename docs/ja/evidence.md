@@ -9,6 +9,7 @@
 - [`../../assets/grok-generated-cat-logo.jpg`](../../assets/grok-generated-cat-logo.jpg)
 - [`../../telegram-remote-bridge.mjs`](../../telegram-remote-bridge.mjs)
 - [検証サマリー](./verification-summary.md)
+- [Command Highlights](./command-highlights.md)
 - [Telegram Helper](./telegram-helper.md)
 - [生ログ archive](https://github.com/Sunwood-ai-labs/grok-cli-sandbox/blob/main/GROK_COMMANDS_AND_OUTPUTS.md)
 

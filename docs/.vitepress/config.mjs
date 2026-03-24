@@ -49,6 +49,7 @@ export default {
               { text: "Getting Started", link: "/getting-started" },
               { text: "Repository Layout", link: "/repo-structure" },
               { text: "Verification Summary", link: "/verification-summary" },
+              { text: "Command Highlights", link: "/command-highlights" },
               { text: "Telegram Helper", link: "/telegram-helper" },
               { text: "Troubleshooting", link: "/troubleshooting" },
               { text: "Evidence & Archive", link: "/evidence" }

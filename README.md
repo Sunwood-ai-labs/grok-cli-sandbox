@@ -81,12 +81,25 @@ The curated verification pages cover one Windows sandbox session dated **2026-03
 
 These are documented as dated observations, not evergreen guarantees for every future CLI build.
 
+## Command Highlights From the Raw Log
+
+`GROK_COMMANDS_AND_OUTPUTS.md` is now reflected in the curated docs as a command-oriented summary.
+
+- Environment capture: `bun --version` -> `1.3.11`, `node --version` -> `v24.12.0`, `grok --version` -> `1.0.0-rc5`
+- Local verification: `bun install`, `bun run build`, `bun run typecheck`, and `bunx vitest run src/grok/client.test.ts` completed successfully with 11 tests passing
+- Headless flow: `grok -p "Reply with only pong." --format json` emitted `step_start` / `text` / `step_finish`, and `--session latest` correctly recalled `NEBULA-47`
+- Tooling: the raw log includes `search_web`, `task`, `delegate`, `delegation_read`, and `search_x` examples with captured JSON tool events
+- Media and Telegram: the archive records `generate_image`, `generate_video`, helper startup, pairing approval, chat roundtrips, file edits, and Telegram-specific test coverage
+
+For the curated version of those command results, see [Command Highlights](./docs/command-highlights.md).
+
 ## 📚 Read Next
 
 - [Docs site](https://sunwood-ai-labs.github.io/grok-cli-sandbox/)
 - [Getting Started](./docs/getting-started.md)
 - [Repository Layout](./docs/repo-structure.md)
 - [Verification Summary](./docs/verification-summary.md)
+- [Command Highlights](./docs/command-highlights.md)
 - [Telegram Helper Guide](./docs/telegram-helper.md)
 - [Evidence & Archive Notes](./docs/evidence.md)
 - [Archived Raw Session Log](./GROK_COMMANDS_AND_OUTPUTS.md)
