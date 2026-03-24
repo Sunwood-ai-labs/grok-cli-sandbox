@@ -1,0 +1,5 @@
+/.grok/
+/.env
+/.env.*
+/telegram-pair-code.txt
+/telegram-remote-bridge.log
